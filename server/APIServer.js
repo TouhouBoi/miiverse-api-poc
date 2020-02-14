@@ -198,8 +198,12 @@ class APIServer {
 /*  Used during the generation of WaraWara Plaza.
     501 for now; WaraWara can be for another day. */
     async topicRequest(req, res) {
-        res.status(501);
-        res.send();
+        //res.status(501);
+        //res.send();
+		
+		const response = await ResponseGen.TopicsResponse();
+        res.contentType("application/xml");
+        res.send(response);
     }
 
 /*  Used on the HOME menu? 501 for now; will implement later. */
